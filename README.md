@@ -13,6 +13,12 @@
       - [More Mongo!](#more-mongo!)
     - [sqlite](#sqlite)
   - [Helpful Tips](#helpful-tips)
+- [Deploying](#deploying)
+  - [Nodejitsu](#nodejitsu)
+    - [Database hosting](#database-hosting)
+  - [Heroku](#heroku)
+    - [Database hosting](#database-hosting-1)
+  - [Other options](#other-options)
 - [Submission](#submission)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -73,7 +79,8 @@ sample-node-app/
 ├─┬ views/
 | └── index.html
 ├── app.js
-└── package.json
+├── package.json
+└── Procfile
 ```
 
 * `app.js` is where your main application code lives. This is the file you run to start the server with `node app.js`
@@ -97,6 +104,7 @@ sample-node-app/
 * `public/` is where all your client side code goes - this includes fonts, client side javascript, and css files. You can reference these files using `/js/filename.js` or `/css/filename.css`, as some examples. See `views/index.html` for an example.
 * `node_modules/` is where all your installed node modules live after you run `npm install`. This should NEVER be committed to git - the .gitignore file ignores them in this repo, so you should be fine.
 * `models/` is where all your database models live. More explanation on this in the next section.
+* `Procfile` is for Heroku only, ignore this otherwise. See the Deploying section below for more details.
 
 ## Using a database
 
@@ -183,6 +191,64 @@ If you for some reason don't want to use MongoDB, there are other options out th
 ## Helpful Tips
 
 * If you would like to not have to kill and restart the server everytime you make a server change, consider using nodemon (http://nodemon.io/)
+
+Deploying
+=========
+There are several ways to deploy your app:
+
+## Nodejitsu
+
+To deploy your application on Nodejitsu, first create an account: https://www.nodejitsu.com/
+
+Once you do it might take you to a form about payment options, but find the convenient button at the bottom that says something like 'No thanks', and it'll continue onto account creation without you having to fork over money.
+
+Once you've logged in, you will want go to launch webops (https://webops.nodejitsu.com/#/login). Make sure your account is activated first otherwise you won't be able to access the page.
+
+Click on 'Deploy an app with jitsu' and follow the instructions (https://github.com/nodejitsu/jitsu) there.
+
+In particular, you will want to add the following lines to your `package.json` file:
+
+```
+"subdomain": "sample-node-app",
+  "scripts": {
+    "predeploy": "echo This will be run before deploying the app",
+    "postdeploy": "echo This will be run after deploying the app",
+    "start": "app.js"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+```
+
+You can replace `sample-node-app` with the name of your application instead.
+
+### Database hosting
+
+If you are using MongoDB, you will need to create a database on Nodejitsu. Go to https://webops.nodejitsu.com/databases and select MongoDB, and pick any provider. You will then be asked to provide a name for your database. After it is created, there will be a box labeled 'Connection String'. You will then want to replace the any line that has `mongodb://localhost/yourdatabase` with your connection string instead, like so:
+
+```
+mongoose.connect('mongodb://nodejitsu:abcdefghijklmnopqrstuvwxyz123@troup.mongohq.com:10045/nodejitsudb1234567890');
+```
+
+You should then be able to re-deploy with `jitsu deploy`
+
+## Heroku
+
+To deploy your application on Heroku, first create an account: https://www.heroku.com/
+
+Once you do, follow the instructions here: https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction
+
+You can skip the cloning the repo part, since you will be starting with your own repository.
+
+Make sure you have run `heroku ps:scale web=1` before you view the website. In addition, ensure that your Procfile is up to date with the command you run to start the server.
+
+### Database hosting
+
+If you are using MongoDB, you will need to host your database somewhere. We recommend using MongoLabs (https://devcenter.heroku.com/articles/mongolab) - you can use their free sandbox option and it should suffice for this competition. It may ask you to provide billing information, but we don't believe it should charge you with the free plan. Read the fine print before continuing though. Follow the instructions at the url (https://devcenter.heroku.com/articles/mongolab) to get the connection URL that you need to use within your code.
+
+## Other options
+
+If you cannot host your node application with any of the above methods by the time your website is due to us, email the staff at 6.470-staff@mit.edu.
 
 Submission
 ==========
