@@ -210,14 +210,14 @@ In particular, you will want to add the following lines to your `package.json` f
 
 ```
 "subdomain": "sample-node-app",
-  "scripts": {
-    "predeploy": "echo This will be run before deploying the app",
-    "postdeploy": "echo This will be run after deploying the app",
-    "start": "app.js"
-  },
-  "engines": {
-    "node": "0.10.x"
-  }
+"scripts": {
+  "predeploy": "echo This will be run before deploying the app",
+  "postdeploy": "echo This will be run after deploying the app",
+  "start": "app.js"
+},
+"engines": {
+  "node": "0.10.x"
+}
 ```
 
 You can replace `sample-node-app` with the name of your application instead.
@@ -240,12 +240,12 @@ Then add the following lines to your `package.json` file:
 
 ```
 "engines": {
-    "node": "0.10.x"
-  },
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  }
+  "node": "0.10.x"
+},
+"main": "app.js",
+"scripts": {
+  "start": "node app.js"
+}
 ```
 
 Once you do, follow the instructions here: https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction
