@@ -1,3 +1,15 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
+
+- [your team name](#your-team-name)
+- [User Research](#user-research)
+- [Site Design](#site-design)
+- [MVP](#mvp)
+- [Additional Questions](#additional-questions)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 your team name
 ==============
 

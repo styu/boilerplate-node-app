@@ -13,6 +13,7 @@
       - [More Mongo!](#more-mongo!)
     - [sqlite](#sqlite)
   - [Helpful Tips](#helpful-tips)
+- [Submission](#submission)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
