@@ -182,3 +182,8 @@ If you for some reason don't want to use MongoDB, there are other options out th
 ## Helpful Tips
 
 * If you would like to not have to kill and restart the server everytime you make a server change, consider using nodemon (http://nodemon.io/)
+
+Submission
+==========
+
+To submit your milestones, please answer the questions in `milestones/milestoneX.md`, where X is the milestone number you are submitting.
