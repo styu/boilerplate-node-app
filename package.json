@@ -1,0 +1,14 @@
+{
+  "name": "sample-node-app",
+  "description": "sample node app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "4.x",
+    "underscore": "*",
+    "handlebars": "*",
+    "hbs": "*",
+    "body-parser": "*",
+    "mongoose": "*"
+  }
+}
