@@ -236,6 +236,18 @@ You should then be able to re-deploy with `jitsu deploy`
 
 To deploy your application on Heroku, first create an account: https://www.heroku.com/
 
+Then add the following lines to your `package.json` file:
+
+```
+"engines": {
+    "node": "0.10.x"
+  },
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  }
+```
+
 Once you do, follow the instructions here: https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction
 
 You can skip the cloning the repo part, since you will be starting with your own repository.
