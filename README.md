@@ -86,10 +86,10 @@ sample-node-app/
 
     This says anytime you visit the base url (e.g. http://localhost:3000/), then give me the result of the index function in routes. If you go to `routes/routes.js`, you will find the function `exports.index`, which renders `index.html` with some text. Any new routes should be declared in `app.js`, e.g.
 
-```
-app.get('/login', routes.login);
-app.post('/login', routes.doLogin);
-```
+    ```
+    app.get('/login', routes.login);
+    app.post('/login', routes.doLogin);
+    ```
 
     And then their corresonding `exports.login` and `exports.doLogin` functions should be created in `routes.js`, similar to how `exports.index` was written.
 
@@ -132,44 +132,44 @@ This text is actually the text of a newly created object in your database. If yo
 2. Creating a Schema
 Databases consists of models, which are described by schemas, which is like a set of instructions for what your data should look like. Our schema is loaded in the following line
 
-```
-var SampleModel = require('../models/sample')(mongoose);
-```
+    ```
+    var SampleModel = require('../models/sample')(mongoose);
+    ```
 
-What this line says is it's looking in the `/models/` folder for a file called sample.js. This file is the one that actually holds the schema and returns the corresponding Model object, which you will use from then on to create new objects, query your database, etc etc.
+    What this line says is it's looking in the `/models/` folder for a file called sample.js. This file is the one that actually holds the schema and returns the corresponding Model object, which you will use from then on to create new objects, query your database, etc etc.
 
-Looking in `/models/sample.js`, you'll see
+    Looking in `/models/sample.js`, you'll see
 
-```
-var Schema = mongoose.Schema
+    ```
+    var Schema = mongoose.Schema
 
-var sampleSchema = new Schema({
-  text: String
-});
+    var sampleSchema = new Schema({
+      text: String
+    });
 
-return mongoose.model('Sample', sampleSchema);
-```
+    return mongoose.model('Sample', sampleSchema);
+    ```
 
-This code simply says create a new Schema with just a single text field called 'text', and then return a model with that schema called 'Sample'. Any models created with the Sample model will have a text field to go with it. If you want to create new models, just create a new file in the `/models/` folder called `yourmodel.js`, copy the contents of `sample.js`, and change the names and fields according to what your new model is. Then in `routes/routes.js` you will want to load your model with the code:
+    This code simply says create a new Schema with just a single text field called 'text', and then return a model with that schema called 'Sample'. Any models created with the Sample model will have a text field to go with it. If you want to create new models, just create a new file in the `/models/` folder called `yourmodel.js`, copy the contents of `sample.js`, and change the names and fields according to what your new model is. Then in `routes/routes.js` you will want to load your model with the code:
 
-```
-var YourModel = require('../models/yourmodel.js')(mongoose);
-```
+    ```
+    var YourModel = require('../models/yourmodel.js')(mongoose);
+    ```
 
 3. Using the Model
 
-In `routes/routes.js`, we have a new route that creates a new Sample object and saves it to the database. If the save is successful, then we display the text, which is what you saw when you visited the url http://localhost:3000/test-database
+    In `routes/routes.js`, we have a new route that creates a new Sample object and saves it to the database. If the save is successful, then we display the text, which is what you saw when you visited the url http://localhost:3000/test-database
 
-```
-var example = new SampleModel({text: "This is a test."});
-example.save(function(err) {
-  if (err) {
-    res.render('index.html', {text: err});
-  } else {
-    res.render('index.html', {text: example.text});
-  }
-});
-```
+    ```
+    var example = new SampleModel({text: "This is a test."});
+    example.save(function(err) {
+      if (err) {
+        res.render('index.html', {text: err});
+      } else {
+        res.render('index.html', {text: example.text});
+      }
+    });
+    ```
 
 #### More Mongo!
 
