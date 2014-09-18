@@ -19,7 +19,8 @@ app.use(bodyParser.json());
 // END VIEW ENGINE
 
 app.get('/', routes.index);
-app.get('/test-database', routes.testDatabase);
+// Uncomment the next line to test the database
+// app.get('/test-database', routes.testDatabase);
 
 http.createServer(app).listen(3000, function(){
   console.log('Express server listening on port ' + 3000);

@@ -107,7 +107,7 @@ This sample application comes with some sample code on how to set up Mongo and m
 
 #### Using MongoDB
 
-Uncomment out the sample code in routes/routes.js to use MongoDB. Restart your application (any changes you make to server code you will need to restart the server - see helpful tips below for an easier way to do this). Once you've restarted the app by running `node app.js`, visit http://localhost:3000/test-database. You should now see the text 'This is a test.' instead of 'Hello World'.
+Uncomment out the sample code in `routes/routes.js` and `app.js` to use MongoDB. Restart your application (any changes you make to server code you will need to restart the server - see helpful tips below for an easier way to do this). Once you've restarted the app by running `node app.js`, visit http://localhost:3000/test-database. You should now see the text 'This is a test.' instead of 'Hello World'.
 
 This text is actually the text of a newly created object in your database. If you look at the database code, you'll notice there are three parts:
 
