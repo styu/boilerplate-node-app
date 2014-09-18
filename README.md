@@ -130,7 +130,7 @@ This text is actually the text of a newly created object in your database. If yo
     ```
 
 2. Creating a Schema
-Databases consists of models, which are described by schemas, which is like a set of instructions for what your data should look like. Our schema is loaded in the following line
+    Databases consists of models, which are described by schemas, which is like a set of instructions for what your data should look like. Our schema is loaded in the following line
 
     ```
     var SampleModel = require('../models/sample')(mongoose);
