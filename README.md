@@ -23,7 +23,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-sample-node-app
+boilerplate-node-app
 ===============
 
 This is the starting code for a sample node app, with instructions on how to deploy onto heroku and nodejitsu
@@ -31,8 +31,8 @@ This is the starting code for a sample node app, with instructions on how to dep
 ## Adding to your git repo
 To add this to your own git repository, `cd` into your repository, and then run
 ```
-git remote add sample-node-app git@github.mit.edu:mit6470/sample-node-app.git
-git pull sample-node-app master
+git remote add boilerplate-node-app git@github.com:styu/boilerplate-node-app.git
+git pull boilerplate-node-app master
 ```
 
 It is recommended that this be run on an empty repository to prevent any possible conflicts. Since this is a sample application, you can use this as a starting point for your web application.
